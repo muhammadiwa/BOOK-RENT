@@ -8,6 +8,6 @@ class UserController extends Controller
 {
     public function profile()
     {
-        dd('ini profile');
+        return view('profile');
     }
 }
