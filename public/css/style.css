@@ -15,7 +15,7 @@
 }
 
 .sidebar a:hover {
-    color: rgb(193, 24, 24);
+    color: rgb(13, 211, 198);
 }
 
 .active {
@@ -25,7 +25,7 @@
 
 .card-data {
     border: solid 1px;
-    padding: 20px;
+    padding: 10px;
     color: #fff;
 }
 
@@ -42,13 +42,26 @@
 }
 
 .card-data i {
-    font-size: 100px;
+    font-size: 75px;
 }
 
 .card-desc {
-    font-size: 40px;
+    font-size: 25px;
 }
 
 .card-count {
-    font-size: 40px;
+    font-size: 25px;
 }
+
+.form-control {
+    border: solid 1px;
+    font-size: 10px;
+}
+
+/* .book-edit {
+    font-size: 10px;
+}
+
+.category-edit {
+    font-size: 10px;
+} */

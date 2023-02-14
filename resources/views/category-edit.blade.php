@@ -8,7 +8,7 @@
         <a href="/categories" class="btn btn-primary">Back</a>
     </div>
 
-    <div class="w-50">
+    <div class="category-edit mt-3 w-50">
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -19,7 +19,7 @@
                 </ul>
             </div>
         @endif
-    </div>
+
         <form action="/category-edit/{{ $category->slug }}" method="post">
             @csrf
             @method('put')

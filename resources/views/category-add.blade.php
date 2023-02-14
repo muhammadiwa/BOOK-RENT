@@ -16,7 +16,6 @@
                 </ul>
             </div>
         @endif
-    </div>
         <form action="category-add" method="post">
             @csrf
             <div>

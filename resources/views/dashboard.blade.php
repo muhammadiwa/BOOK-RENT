@@ -5,7 +5,7 @@
 @section('content')
 
 <h1>Welcome, {{ Auth::user()->username }}</h1>
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-lg-4">
             <div class="card-data book">
                 <div class="row">
