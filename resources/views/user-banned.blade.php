@@ -1,50 +1,50 @@
 @extends('layouts.mainlayout')
 
-@section('title', 'User')
+@section('title', 'Deleted User')
 
 @section('content')
-    <h1>User List</h1>
+    <h1>Banned User List</h1>
 
-    <div class="mt-3 d-flex justify-content-end">
-        <a href="/user-banned" class="btn btn-outline-primary me-2">Banned List</a>
-        <a href="/registered-users" class="btn btn-primary">New Registered User</a>
+    <div class="d-flex justify-content-end">
+        <a href="/users" class="btn btn-primary">Back</a>
     </div>
-
-    <div class="mt-3">
+    <div class="mt-5">
         @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
-            </div>            
+            </div>
         @endif
     </div>
 
-    <div class="my-3">
+    <div class="my-5">
         <table class="table">
             <thead>
                 <tr>
                     <th>No.</th>
                     <th>Username</th>
                     <th>Phone</th>
+                    <th>Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @foreach ($bannedUsers as $user)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->username }}</td>
+                    <td>{{ $user->username }}</td>
                     <td>
-                        @if ($item->phone)
-                            {{ $item->phone }}
+                        @if ($user->phone)
+                            {{ $user->phone }}
                         @else
                             -
                         @endif
                     </td>
+                    <td>{{ $user->address }}</td>
                     <td>
-                        <a href="/user-detail/{{ $item-> slug }}">detail</a>
-                        <a href="/user-ban/{{ $item->slug }}">ban user</a>
+                        <a href="/user-restore/{{ $user->slug }}">Restore</a>
                     </td>
-                </tr> 
+                </tr>
+                    
                 @endforeach
             </tbody>
         </table>

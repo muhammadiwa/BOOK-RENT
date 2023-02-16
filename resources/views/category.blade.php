@@ -6,8 +6,8 @@
     <h1>Category List</h1>
 
     <div class="mt-3 d-flex justify-content-end">
-        <a href="category-deleted" class="btn btn-outline-primary me-2">Deleted List</a>
-        <a href="category-add" class="btn btn-primary">Add New Data</a>
+        <a href="/category-deleted" class="btn btn-outline-primary me-2">Deleted List</a>
+        <a href="/category-add" class="btn btn-primary">Add New Data</a>
     </div>
     <div class="mt-3">
         @if (session('status'))
@@ -33,8 +33,8 @@
                     <td>{{ $item->name }}</td>
                     <td>
                         <a href="#">view</a>
-                        <a href="category-edit/{{ $item->slug }}">edit</a>
-                        <a href="category-delete/{{ $item->slug }}">delete</a>
+                        <a href="/category-edit/{{ $item->slug }}">edit</a>
+                        <a href="/category-delete/{{ $item->slug }}">delete</a>
                     </td>
                 </tr>
                     

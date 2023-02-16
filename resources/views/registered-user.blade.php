@@ -1,21 +1,12 @@
 @extends('layouts.mainlayout')
 
-@section('title', 'User')
+@section('title', 'Users')
 
 @section('content')
-    <h1>User List</h1>
+    <h1>New Registered User List</h1>
 
     <div class="mt-3 d-flex justify-content-end">
-        <a href="/user-banned" class="btn btn-outline-primary me-2">Banned List</a>
-        <a href="/registered-users" class="btn btn-primary">New Registered User</a>
-    </div>
-
-    <div class="mt-3">
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>            
-        @endif
+        <a href="/users" class="btn btn-outline-primary me-2">Approved User List</a>
     </div>
 
     <div class="my-3">
@@ -29,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @foreach ($registeredUsers as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->username }}</td>
@@ -42,7 +33,6 @@
                     </td>
                     <td>
                         <a href="/user-detail/{{ $item-> slug }}">detail</a>
-                        <a href="/user-ban/{{ $item->slug }}">ban user</a>
                     </td>
                 </tr> 
                 @endforeach

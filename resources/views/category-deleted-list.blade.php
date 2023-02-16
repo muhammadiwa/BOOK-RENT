@@ -20,9 +20,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>No.</td>
-                    <td>Name</td>
-                    <td>Action</td>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
