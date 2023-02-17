@@ -19,7 +19,7 @@ class OnlyAdmin
     {
         // disini kita ngasih tau apa yang harus dilakukan kalo akun yg lagi login bukan admin
         if (Auth::user()->role_id != 1) {
-            return redirect('books');
+            return redirect('/');
         }
 
         // apa yg middleware lakukan kalo yg login admin

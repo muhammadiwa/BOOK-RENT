@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -19,9 +20,7 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
+Route::get('/', [PublicController::class, 'index']);
 
 Route::middleware('only_guest')->group(function() {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -32,9 +31,12 @@ Route::middleware('only_guest')->group(function() {
 
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
-    Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['only_admin']);
-    
     Route::get('profile', [UserController::class, 'profile'])->middleware(['only_client']);
+    
+    
+
+Route::middleware('only_admin')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index']);
     
     Route::get('books', [BookController::class, 'index']);
     Route::get('book-add', [BookController::class, 'add']);
@@ -64,6 +66,6 @@ Route::middleware('auth')->group(function () {
     Route::get('user-destroy/{slug}', [UserController::class, 'destroy']);
     Route::get('user-banned', [UserController::class, 'bannedUser']);
     Route::get('user-restore/{slug}', [UserController::class, 'restore']);
-
+});
     Route::get('rent-logs', [RentLogController::class, 'index']);
 });

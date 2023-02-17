@@ -65,3 +65,9 @@
 .category-edit {
     font-size: 10px;
 } */
+
+.card-img-top {
+    height: 150px;
+    width: 150px;
+    padding: 10px 10px;
+}
