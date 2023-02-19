@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Doctrine\DBAL\Schema\View;
+use App\Models\RentLogs;
 use Illuminate\Http\Request;
+use Doctrine\DBAL\Schema\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
     public function profile()
     {
-        return view('profile');
+        $rentlogs =  RentLogs::with(['user', 'book'])->where('user_id', Auth::user()->id)->get();
+        return view('profile', ['rent_logs' => $rentlogs]);
     }
 
     public function index()
@@ -27,8 +31,10 @@ class UserController extends Controller
 
     public function show($slug)
     {
+        
         $user = User::where('slug', $slug)->first();
-        return view('user-detail', ['user' => $user]);
+        $rentlogs =  RentLogs::with(['user', 'book'])->where('user_id', $user->id)->get();
+        return view('user-detail', ['user' => $user, 'rent_logs' => $rentlogs]);
     }
 
     public function approve($slug)

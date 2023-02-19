@@ -46,5 +46,9 @@
             </tbody>
         </table>
     </div>
+    <div class="mt-5">
+        <h2>User Rent List</h2>
+        <x-rent-log-table :rentlog='$rent_logs'/>
+    </div>
 
 @endsection

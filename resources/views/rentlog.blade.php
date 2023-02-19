@@ -3,11 +3,9 @@
 @section('title', 'Rent Log')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="float-start">
-                {{-- <h2>Daftar Laporan</h2> --}}
-            </div>
-        </div>
+    <h1>Rent Log</h1>
+
+    <div class="mt-3">
+        <x-rent-log-table :rentlog='$rent_logs'/>
     </div>
 @endsection
