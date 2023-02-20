@@ -3,8 +3,8 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>User</th>
-                    <th>Book</th>
+                    <th>Username</th>
+                    <th>Book Title</th>
                     <th>Rent Date</th>
                     <th>Return Date</th>
                     <th>Actual Return Date</th>

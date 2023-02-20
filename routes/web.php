@@ -70,7 +70,9 @@ Route::middleware('only_admin')->group(function () {
 
     Route::get('book-rent', [BookRentController::class, 'index']);
     Route::post('book-rent', [BookRentController::class, 'store']);
-    
+    Route::get('book-return', [BookRentController::class, 'returnBook']);
+    Route::post('book-return', [BookRentController::class, 'saveReturnBook']);
+
     Route::get('rent-logs', [RentLogController::class, 'index']);
 });
     
